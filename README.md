@@ -23,10 +23,25 @@ In this challenge, you are to build a Smurfs village utilizing context or Redux 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] What problem does the context API help solve?
-- [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+
+  Context API solves the problem of having to prop drill to pass props down to distant siblings or children. It also helps reduce package size by not having to implmement another library with redux.
+
+- [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store
+      known as a 'single source of truth' in a redux application?
+
+  Actions return an object with a type and an optional payload. When they are dispatched to the reducer they are checked against a conditional to see if the action type matches. If it matches, the reducer performs the code for the dispatched action. The store is is where state is managed and it's provided to the components. It's a single source of truth because the only way to update the state in the store is to dispatch an action to the reducer. There are no unintended side effects or state being out of sync.
+
 - [ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?
+
+  Application state is managed on a global scale and the state is provided to the children components through some type of state management system (redux, context, etc). Component state is managed locally and is not effecting other components down the tree. A good time for application state management would be when you have large, complex applications, with lots of state changes and actions that can change the state. Component state management is good for components that arent deeply effecting the state of other components (within reason). A good example would be when you need to manage form input for individual forms that don't effect eachother.
+
 - [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+
+Redux thunk allows for redux to be run async. Action creators and redux are not async in nature, but thunks allow us to return a function that is able to execute asynchronously. We can specify the steps that thinks need to be done in order and our action creators can be dispatched directly in our thunked functions.
+
 - [ ] What is your favorite state management system you've learned and this sprint? Please explain why!
+
+  I really like redux. The hooks make it much cleaner and less of hassle to implement. It allows us to do some powerful things and also make managing states between complex component trees a breeze!
 
 ## Project Set Up
 

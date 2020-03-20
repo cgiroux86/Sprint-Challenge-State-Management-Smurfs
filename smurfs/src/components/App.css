@@ -1,3 +1,7 @@
 .App {
   text-align: center;
 }
+.error {
+  font-size: 3rem;
+  color: red;
+}
